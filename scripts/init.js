@@ -18,6 +18,7 @@ const fs = require('fs-extra');
 const path = require('path');
 const chalk = require('chalk');
 const spawn = require('react-dev-utils/crossSpawn');
+const R = require('ramda');
 
 module.exports = function(
   appPath,
@@ -29,8 +30,17 @@ module.exports = function(
   const ownPackageName = require(path.join(__dirname, '..', 'package.json'))
     .name;
   const ownPath = path.join(appPath, 'node_modules', ownPackageName);
-  const appPackage = require(path.join(appPath, 'package.json'));
   const useYarn = fs.existsSync(path.join(appPath, 'yarn.lock'));
+
+  // akiya-react-scripts custom block
+  let appPackage = require(path.join(appPath, 'package.json'));
+  const customPackageFields = require(path.join(
+    __dirname,
+    '..',
+    'config',
+    'custom',
+    'custom.package.fields.json'
+  ));
 
   // Copy over some of the devDependencies
   appPackage.dependencies = appPackage.dependencies || {};
@@ -40,8 +50,10 @@ module.exports = function(
     start: 'react-scripts start',
     build: 'react-scripts build',
     test: 'react-scripts test --env=jsdom',
-    eject: 'react-scripts eject',
+    eject: 'react-scripts eject'
   };
+
+  appPackage = R.mergeDeepRight(customPackageFields, appPackage);
 
   fs.writeFileSync(
     path.join(appPath, 'package.json'),
