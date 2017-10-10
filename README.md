@@ -13,6 +13,7 @@
 * [ ] react-router
 * [ ] recompose
 * [ ] apollo
+* [x] sort-package-json: ^1.7.1
 
 ### Babel
 * [x] babel-preset-flow: ^6.23.0
@@ -21,10 +22,10 @@
 * [ ] babel-preset-env
 
 ### Styles
-* [ ] SASS/SCSS
-* [ ] CSS Module
-* [ ] PostCSS
-* [ ] autoprefixer
+* [x] SASS/SCSS
+* [x] CSS Module
+* [x] PostCSS
+* [x] autoprefixer
 * [ ] rucksack-css
 * [ ] styled-component
 
@@ -44,8 +45,8 @@
 * [x] .eslintrc
 * [x] .eslintignore
 * [x] .babelrc
-* [ ] .editorconfig
-* [ ] .gitignore
+* [x] .editorconfig
+* [x] .gitignore
 
 ### Documentation
 * [ ] styleguidist
@@ -64,7 +65,7 @@
 ### Others
 * [x] husky: ^0.14.3
   * [x] precommit
-* [ ] extract-text-webpack-plugin
+* [x] extract-text-webpack-plugin
 * [ ] code splitting
 * [ ] webpack dashboard
 * [x] uglify/minify
