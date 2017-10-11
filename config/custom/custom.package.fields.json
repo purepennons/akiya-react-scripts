@@ -1,1 +1,11 @@
-{}
+{
+  "flow": "flow",
+  "scripts": {
+    "lint": "./node_modules/eslint/bin/eslint.js ./src/**/*.{js,jsx}",
+    "flow-start": "flow start",
+    "flow-stop": "flow stop",
+    "flow-status": "flow status",
+    "flow-coverage": "flow coverage",
+    "precommit": "npm run lint && npm run flow-status"
+  }
+}
