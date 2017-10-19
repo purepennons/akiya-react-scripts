@@ -47,10 +47,11 @@
 * [x] .babelrc
 * [x] .editorconfig
 * [x] .gitignore
+* [ ] .stylelintrc
 
 ### Documentation
 * [ ] styleguidist
-* [ ] JSDoc
+* [ ] esDoc
 
 ### CI/CD
 * [ ] drone ci or circle ci
@@ -65,6 +66,7 @@
 ### Others
 * [x] husky: ^0.14.3
   * [x] precommit
+  * [ ] lint-staged
 * [x] extract-text-webpack-plugin
 * [ ] code splitting
 * [ ] webpack dashboard
