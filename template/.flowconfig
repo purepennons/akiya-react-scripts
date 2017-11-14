@@ -1,5 +1,10 @@
 [ignore]
 <PROJECT_ROOT>/node_modules/fbjs/.*
+.*node_modules.*
+.*data.*
+.*dist.*
+.*\.tmp.*
+.*public.*
 
 [libs]
 ./node_modules/fbjs/flow/lib

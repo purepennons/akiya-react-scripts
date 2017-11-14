@@ -20,27 +20,27 @@ const chalk = require('chalk');
 const spawn = require('react-dev-utils/crossSpawn');
 const R = require('ramda');
 const sortPackageJson = require('sort-package-json');
+const exec = require('child_process').execSync;
 
 module.exports = function(
   appPath,
   appName,
   verbose,
   originalDirectory,
-  template
+  template,
 ) {
   const ownPackageName = require(path.join(__dirname, '..', 'package.json'))
     .name;
   const ownPath = path.join(appPath, 'node_modules', ownPackageName);
   const useYarn = fs.existsSync(path.join(appPath, 'yarn.lock'));
 
-  // akiya-react-scripts custom block
   let appPackage = require(path.join(appPath, 'package.json'));
   const customPackageFields = require(path.join(
     __dirname,
     '..',
     'config',
     'custom',
-    'custom.package.fields.json'
+    'custom.package.fields.json',
   ));
 
   // Copy over some of the devDependencies
@@ -51,21 +51,21 @@ module.exports = function(
     start: 'react-scripts start',
     build: 'react-scripts build',
     test: 'react-scripts test --env=jsdom',
-    eject: 'react-scripts eject'
+    eject: 'react-scripts eject',
   };
 
   appPackage = R.mergeDeepRight(customPackageFields, appPackage);
 
   fs.writeFileSync(
     path.join(appPath, 'package.json'),
-    JSON.stringify(sortPackageJson(appPackage), null, 2)
+    JSON.stringify(sortPackageJson(appPackage), null, 2),
   );
 
   const readmeExists = fs.existsSync(path.join(appPath, 'README.md'));
   if (readmeExists) {
     fs.renameSync(
       path.join(appPath, 'README.md'),
-      path.join(appPath, 'README.old.md')
+      path.join(appPath, 'README.old.md'),
     );
   }
 
@@ -77,7 +77,7 @@ module.exports = function(
     fs.copySync(templatePath, appPath);
   } else {
     console.error(
-      `Could not locate supplied template: ${chalk.green(templatePath)}`
+      `Could not locate supplied template: ${chalk.green(templatePath)}`,
     );
     return;
   }
@@ -99,7 +99,7 @@ module.exports = function(
           throw err;
         }
       }
-    }
+    },
   );
 
   let command;
@@ -117,14 +117,14 @@ module.exports = function(
   // Install additional template dependencies, if present
   const templateDependenciesPath = path.join(
     appPath,
-    '.template.dependencies.json'
+    '.template.dependencies.json',
   );
   if (fs.existsSync(templateDependenciesPath)) {
     const templateDependencies = require(templateDependenciesPath).dependencies;
     args = args.concat(
       Object.keys(templateDependencies).map(key => {
         return `${key}@${templateDependencies[key]}`;
-      })
+      }),
     );
     fs.unlinkSync(templateDependenciesPath);
   }
@@ -142,6 +142,13 @@ module.exports = function(
       return;
     }
   }
+
+  // git init and reinstall husky
+  const gitInit = 'git init';
+  const installHusky = useYarn ? 'yarn install' : 'npm install';
+  exec(gitInit, { stdio: [0, 1, 2] });
+  fs.removeSync('./node_modules/husky');
+  exec(installHusky, { stdio: [0, 1, 2] });
 
   // Display the most elegant way to cd.
   // This needs to handle an undefined originalDirectory for
@@ -164,7 +171,7 @@ module.exports = function(
   console.log('    Starts the development server.');
   console.log();
   console.log(
-    chalk.cyan(`  ${displayedCommand} ${useYarn ? '' : 'run '}build`)
+    chalk.cyan(`  ${displayedCommand} ${useYarn ? '' : 'run '}build`),
   );
   console.log('    Bundles the app into static files for production.');
   console.log();
@@ -172,13 +179,13 @@ module.exports = function(
   console.log('    Starts the test runner.');
   console.log();
   console.log(
-    chalk.cyan(`  ${displayedCommand} ${useYarn ? '' : 'run '}eject`)
+    chalk.cyan(`  ${displayedCommand} ${useYarn ? '' : 'run '}eject`),
   );
   console.log(
-    '    Removes this tool and copies build dependencies, configuration files'
+    '    Removes this tool and copies build dependencies, configuration files',
   );
   console.log(
-    '    and scripts into the app directory. If you do this, you can’t go back!'
+    '    and scripts into the app directory. If you do this, you can’t go back!',
   );
   console.log();
   console.log('We suggest that you begin by typing:');
@@ -189,8 +196,8 @@ module.exports = function(
     console.log();
     console.log(
       chalk.yellow(
-        'You had a `README.md` file, we renamed it to `README.old.md`'
-      )
+        'You had a `README.md` file, we renamed it to `README.old.md`',
+      ),
     );
   }
   console.log();
