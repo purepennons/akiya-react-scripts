@@ -6,6 +6,8 @@
     "flow-stop": "flow stop",
     "flow-status": "flow status",
     "flow-coverage": "flow coverage",
-    "precommit": "npm run lint && npm run flow-status"
+    "precommit": "npm run lint && npm run flow-status",
+    "styleguide": "styleguidist server",
+    "styleguide:build": "styleguidist build"
   }
 }

@@ -50,7 +50,7 @@
 * [ ] .stylelintrc
 
 ### Documentation
-* [ ] styleguidist
+* [x] styleguidist
 * [ ] esDoc
 
 ### CI/CD

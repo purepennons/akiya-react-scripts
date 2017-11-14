@@ -227,6 +227,7 @@ module.exports = {
                   importLoaders: 2,
                   sourceMap: true,
                   modules: true,
+                  localIdentName: '[path][name]__[local]__[hash:base64:5]',
                 },
               },
               {
