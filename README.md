@@ -1,5 +1,11 @@
 # akiya-react-scripts
 
+## Usage
+```bash
+$ npm install -g create-react-app
+$ create-react-app <APP_NAME> --scripts-version akiya-react-scripts
+```
+
 ## Todo
 ### Packages
 * [x] flow: ^0.56.0
