@@ -16,6 +16,8 @@ const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
 const eslintFormatter = require('react-dev-utils/eslintFormatter');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
+const stylelintFormatterTable = require('stylelint-formatter-table');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
@@ -281,6 +283,12 @@ module.exports = {
     ],
   },
   plugins: [
+    // stylelint
+    new StyleLintPlugin({
+      configFile: '.stylelintrc.json',
+      files: 'src/**/*.s?(a|c)ss',
+      formatter: stylelintFormatterTable,
+    }),
     // Makes some environment variables available in index.html.
     // The public URL is available as %PUBLIC_URL% in index.html, e.g.:
     // <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">

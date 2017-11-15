@@ -1,0 +1,13 @@
+{
+  "editor.tabSize": 2,
+  "javascript.format.enable": false,
+  "prettier.tabWidth": 2,
+  "prettier.useTabs": false,
+  "prettier.semi": false,
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "all",
+  "prettier.eslintIntegration": true,
+  "prettier.stylelintIntegration": true,
+  "prettier.parser": "flow",
+  "prettier.cssEnable": ["css", "less", "scss", "sass", "styl"]
+}
