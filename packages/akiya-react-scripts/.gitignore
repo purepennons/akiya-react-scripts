@@ -1,6 +1,6 @@
 
 # Created by https://www.gitignore.io/api/git,node,macos
-.vscode
+
 ### Git ###
 *.orig
 
