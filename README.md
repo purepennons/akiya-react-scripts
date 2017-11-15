@@ -37,7 +37,7 @@
 ### Linters
 * [x] babel-eslint: ^8.0.1
 * [x] prettier-eslint: ^8.2.0
-* [ ] stylelint-config-standard
+* [x] stylelint-config-standard
 * [x] prettier
 
 ### Configurations
@@ -47,7 +47,7 @@
 * [x] .babelrc
 * [x] .editorconfig
 * [x] .gitignore
-* [ ] .stylelintrc
+* [x] .stylelintrc
 
 ### Documentation
 * [x] styleguidist
