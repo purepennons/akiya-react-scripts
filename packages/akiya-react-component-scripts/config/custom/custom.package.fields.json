@@ -19,5 +19,8 @@
     "build",
     "css",
     "assets"
-  ]
+  ],
+  "peerDependencies": {
+    "react": "15.x"
+  }
 }
