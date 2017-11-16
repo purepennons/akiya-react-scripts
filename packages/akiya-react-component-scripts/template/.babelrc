@@ -1,6 +1,7 @@
 {
   "presets": [
     "react-app",
+    "react",
     "es2015",
     "stage-2",
     "flow"
