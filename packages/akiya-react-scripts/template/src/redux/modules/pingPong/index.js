@@ -1,9 +1,8 @@
 // @flow
-import { type HomeSPingPongStatetate } from '../../../types/state'
+import { type PingPongState } from '../../../types/state'
 import { type Action } from '../../../types/actions'
 
 import { cond, always, equals, T } from 'ramda'
-import { setInterval } from 'core-js/library/web/timers'
 
 // actions
 export const PING: string = 'PING'
