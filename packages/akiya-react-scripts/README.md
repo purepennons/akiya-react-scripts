@@ -9,14 +9,16 @@ $ create-react-app <APP_NAME> --scripts-version akiya-react-scripts
 ## Todo
 ### Packages
 * [x] flow: ^0.56.0
-* [x] ramda: ^0.24.1
-* [x] react: ^16.0.0
-* [x] react-dom: ^16.0.0
-* [ ] redux
-* [ ] redux-thunk
+* [x] ramda: ^0.25.0
+* [x] react: ^16.1.1
+* [x] react-dom: ^16.1.1
+* [x] redux
+* [x] redux-thunk
 * [ ] redux-saga
 * [ ] redux-observable
-* [ ] react-router
+* [x] react-redux
+* [x] react-router: 4.2.0
+* [x] react-router-redux: 5.0.0-alpha.8
 * [ ] recompose
 * [ ] apollo
 * [x] sort-package-json: ^1.7.1
@@ -78,4 +80,7 @@ $ create-react-app <APP_NAME> --scripts-version akiya-react-scripts
 * [ ] webpack dashboard
 * [x] uglify/minify
 * [ ] folder structure
+  * [x] redux-thunk version
+  * [ ] redux-observable version
+  * [ ] redux-saga version
 
