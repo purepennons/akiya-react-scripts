@@ -80,4 +80,7 @@ $ create-react-app <APP_NAME> --scripts-version akiya-react-scripts
 * [ ] webpack dashboard
 * [x] uglify/minify
 * [ ] folder structure
+  * [x] redux-thunk version
+  * [ ] redux-observable version
+  * [ ] redux-saga version
 
