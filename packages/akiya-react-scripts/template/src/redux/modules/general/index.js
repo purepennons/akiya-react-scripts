@@ -22,7 +22,7 @@ export default (state = initialState, action) => {
 }
 
 // action creators
-export const setFetchingState = (isFetching: boolean) => ({
+export const setFetchingState = (isFetching) => ({
   type: SET_FETCHING_STATE,
   payload: { isFetching },
 })
