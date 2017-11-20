@@ -1,20 +1,16 @@
-// @flow
-import { type HomeState } from '../../../types/state'
-import { type Action } from '../../../types/actions'
-
 import { cond, always, equals, T } from 'ramda'
 
 import { showLoader, hiddenLoader } from '../general'
 
 // actions
-export const UPDATE_HOME_CONTENT: string = 'UPDATE_HOME_CONTENT'
+export const UPDATE_HOME_CONTENT = 'UPDATE_HOME_CONTENT'
 
-export const initialState: HomeState = {
+export const initialState = {
   content: '',
 }
 
 // reducer
-export default (state: HomeState = initialState, action: Action): HomeState => {
+export default (state = initialState, action) => {
   return cond([
     [
       equals(UPDATE_HOME_CONTENT),
@@ -27,13 +23,13 @@ export default (state: HomeState = initialState, action: Action): HomeState => {
 }
 
 // action creators
-export const updateContent = (content: string): Action => ({
+export const updateContent = (content) => ({
   type: UPDATE_HOME_CONTENT,
   payload: content
 })
 
 // side effect (thunks or epics)
-export const getHomeContent = () => (dispatch: Function, getState: Function) => {
+export const getHomeContent = () => (dispatch, getState) => {
   // dummy data
   dispatch(showLoader())
   import('../../../fixtures/home.js')
