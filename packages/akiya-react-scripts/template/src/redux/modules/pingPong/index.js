@@ -1,22 +1,15 @@
-// @flow
-import { type PingPongState } from '../../../types/state'
-import { type Action } from '../../../types/actions'
-
 import { cond, always, equals, T } from 'ramda'
 
 // actions
-export const PING: string = 'PING'
-export const PONG: string = 'PONG'
+export const PING = 'PING'
+export const PONG = 'PONG'
 
-export const initialState: PingPongState = {
+export const initialState = {
   isPinging: false,
 }
 
 // reducer
-export default (
-  state: PingPongState = initialState,
-  action: Action,
-): PingPongState => {
+export default (state = initialState, action) => {
   return cond([
     [equals(PING), () => ({ isPinging: true })],
     [equals(PONG), () => ({ isPinging: false })],
@@ -25,18 +18,18 @@ export default (
 }
 
 // action creators
-export const ping = (): Action => ({
+export const ping = () => ({
   type: PING,
   payload: {},
 })
 
-export const pong = (): Action => ({
+export const pong = () => ({
   type: PONG,
   payload: {},
 })
 
 // side effect (thunks or epics)
-export const pingPong = () => (dispatch: Function, getState: Function) => {
+export const pingPong = () => (dispatch, getState) => {
   dispatch(ping())
   setTimeout(() => dispatch(pong()), 1000)
 }

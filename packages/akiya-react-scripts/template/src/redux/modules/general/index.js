@@ -1,19 +1,15 @@
-// @flow
-import { type General } from '../../../types/state'
-import { type Action } from '../../../types/actions'
-
 import { cond, always, equals, T } from 'ramda';
 
 // actions
-export const SET_FETCHING_STATE: string = 'SET_FETCHING_STATE'
+export const SET_FETCHING_STATE = 'SET_FETCHING_STATE'
 
-export const initialState: General = {
+export const initialState = {
   isFetching: false,
   isModalVisible: false,
 }
 
 // reducer
-export default (state: General = initialState, action: Action): General => {
+export default (state = initialState, action) => {
   return cond([
     [
       equals(SET_FETCHING_STATE),
@@ -26,12 +22,12 @@ export default (state: General = initialState, action: Action): General => {
 }
 
 // action creators
-export const setFetchingState = (isFetching: boolean): Action => ({
+export const setFetchingState = (isFetching: boolean) => ({
   type: SET_FETCHING_STATE,
   payload: { isFetching },
 })
 
-export const showLoader = (): Action => setFetchingState(true)
-export const hiddenLoader = (): Action => setFetchingState(false)
+export const showLoader = () => setFetchingState(true)
+export const hiddenLoader = () => setFetchingState(false)
 
 // side effect (thunks or epics)
