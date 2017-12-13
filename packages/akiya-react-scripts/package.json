@@ -1,11 +1,11 @@
 {
   "name": "akiya-react-scripts",
-  "version": "1.4.2",
+  "version": "1.4.5",
   "description": "a fork version from create-react-app/react-scripts",
   "repository": "purepennons/akiya-react-scripts",
   "license": "MIT",
   "engines": {
-    "node": ">=6"
+    "node": ">=8"
   },
   "bugs": {
     "url": "https://github.com/purepennons/akiya-react-scripts/issues"
@@ -58,9 +58,9 @@
     "promise": "8.0.1",
     "prop-types": "^15.6.0",
     "ramda": "^0.25.0",
-    "react": "^16.1.1",
+    "react": "^16.2.0",
     "react-dev-utils": "^4.1.0",
-    "react-dom": "^16.1.1",
+    "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
