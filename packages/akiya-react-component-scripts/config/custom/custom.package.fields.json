@@ -8,7 +8,7 @@
     "flow-stop": "flow stop",
     "flow-status": "flow status",
     "flow-coverage": "flow coverage",
-    "precommit": "npm run lint && npm run stylelint && npm run flow-status",
+    "husky:precommit": "npm run lint && npm run stylelint && npm run flow-status",
     "prepublish": "npm run build && npm run lib",
     "stylelint": "./node_modules/stylelint/bin/stylelint.js ./src/**/*.{scss,sass}",
     "styleguide": "styleguidist server",
