@@ -25,7 +25,7 @@
       }
     },
     "react": {
-      "flowVersion": "0.59"
+      "flowVersion": "0.56"
     },
     "flowtype": {
       "onlyFilesWithFlowAnnotation": true
