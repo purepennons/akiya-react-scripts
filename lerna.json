@@ -7,7 +7,6 @@
   "npmClient": "yarn",
   "command": {
     "publish": {
-      "allowBranch": "lerna/publish",
       "message": "publish npm packages by lerna [ci skip]"
     }
   }
