@@ -21,6 +21,7 @@ test:
 
 deployment:
   production:
-    branch: lerna/publish
+    branch: master
     commands:
-      - yarn publish-all
+    # because yarn has troll
+      - npm run publish-all
