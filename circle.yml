@@ -23,4 +23,6 @@ deployment:
   lerna-publishment:
     branch: master
     commands:
+      - git config --global user.email $GITHUB_EMAIL
+      - git config --global user.name $GITHUB_USER
       - yarn publish-all
