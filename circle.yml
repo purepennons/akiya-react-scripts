@@ -23,5 +23,7 @@ deployment:
   production:
     branch: master
     commands:
+      - git config --global user.email $GITHUB_EMAIL
+      - git config --global user.name $GITHUB_USER
     # because yarn has troll
       - npm run publish-all
